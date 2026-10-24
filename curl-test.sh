@@ -29,6 +29,10 @@ echo -e "${YELLOW}2. GET /music/1 (Get single song: Daft Punk)${NC}"
 curl -s -X GET "${BASE_URL}/music/1" | jq .
 echo -e "\n"
 
+echo -e "${YELLOW}2b. GET /music/random (Surprise Me! Get random song)${NC}"
+curl -s -X GET "${BASE_URL}/music/random" | jq .
+echo -e "\n"
+
 # 2. Create a new song
 echo -e "${YELLOW}3. POST /music (Add Pink Floyd - Time)${NC}"
 NEW_SONG=$(curl -s -X POST "${BASE_URL}/music" \

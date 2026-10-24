@@ -79,6 +79,17 @@ public class MusicControllerTest {
     }
 
     @Test
+    @DisplayName("GET /music/random should return a random song from the catalog")
+    void testGetRandomMusic() throws Exception {
+        mockMvc.perform(get("/music/random"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").exists())
+                .andExpect(jsonPath("$.artist-name").exists())
+                .andExpect(jsonPath("$.genre-name").exists())
+                .andExpect(jsonPath("$.link").exists());
+    }
+
+    @Test
     @DisplayName("GET /music/{music-id} should return single song by ID")
     void testGetMusicById() throws Exception {
         mockMvc.perform(get("/music/" + testMusicId))

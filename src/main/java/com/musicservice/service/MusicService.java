@@ -125,4 +125,17 @@ public class MusicService {
     public List<Music> getMusicByGenre(String genreName) {
         return musicRepository.findByGenreNameIgnoreCase(genreName);
     }
+
+    /**
+     * Retrieve a random song from the catalog ("Surprise Me!").
+     */
+    @Transactional(readOnly = true)
+    public Music getRandomMusic() {
+        List<Music> allMusic = musicRepository.findAll();
+        if (allMusic.isEmpty()) {
+            throw new ResourceNotFoundException("No music available in catalog");
+        }
+        int randomIndex = java.util.concurrent.ThreadLocalRandom.current().nextInt(allMusic.size());
+        return allMusic.get(randomIndex);
+    }
 }

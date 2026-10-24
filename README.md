@@ -152,7 +152,20 @@ To visually inspect tables (`MUSICS`, `USERS`, `USER_MUSIC`):
 }
 ```
 
-#### 3. Add a new song
+#### 3. Surprise Me! (Get a random song)
+- **Method**: `GET`
+- **URL**: `/music/random`
+- **Response**: `200 OK`
+```json
+{
+  "id": 4,
+  "artist-name": "Led Zeppelin",
+  "genre-name": "Rock",
+  "link": "https://open.spotify.com/track/5CQ30WqJwcep0pYcV4AMNc"
+}
+```
+
+#### 4. Add a new song
 - **Method**: `POST`
 - **URL**: `/music`
 - **Body**:
@@ -165,7 +178,7 @@ To visually inspect tables (`MUSICS`, `USERS`, `USER_MUSIC`):
 ```
 - **Response**: `201 Created`
 
-#### 4. Partially update a song
+#### 5. Partially update a song
 - **Method**: `PATCH`
 - **URL**: `/music/{music-id}`
 - **Body**:
@@ -176,7 +189,7 @@ To visually inspect tables (`MUSICS`, `USERS`, `USER_MUSIC`):
 ```
 - **Response**: `200 OK`
 
-#### 5. Delete a song
+#### 6. Delete a song
 - **Method**: `DELETE`
 - **URL**: `/music/{music-id}`
 - **Response**: `204 No Content`

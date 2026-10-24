@@ -54,6 +54,15 @@ public class MusicController {
     }
 
     /**
+     * GET /music/random -> Retrieve a random song from the catalog ("Surprise Me!").
+     */
+    @GetMapping("/random")
+    @Operation(summary = "Get a random song", description = "Returns a random song from the music catalog")
+    public ResponseEntity<Music> getRandomMusic() {
+        return ResponseEntity.ok(musicService.getRandomMusic());
+    }
+
+    /**
      * GET /music/{music-id} -> Retrieve a single song by ID.
      */
     @GetMapping("/{music-id}")

@@ -14,12 +14,15 @@ import java.util.Objects;
  * Music Entity represents a song in the music catalog.
  *
  * Annotations explained for beginners:
- * - @Entity: Marks this Java class as a JPA entity that maps to a database table.
+ * - @Entity: Marks this Java class as a JPA entity that maps to a database
+ * table.
  * - @Table: Specifies the name of the database table ("musics").
  * - @Id: Marks the primary key field.
- * - @GeneratedValue: Tells the database to automatically generate and increment the ID.
- * - @JsonProperty: Maps Java camelCase ("artistName") to JSON kebab-case ("artist-name")
- *                  so the API JSON matches the exact specification.
+ * - @GeneratedValue: Tells the database to automatically generate and increment
+ * the ID.
+ * - @JsonProperty: Maps Java camelCase ("artistName") to JSON kebab-case
+ * ("artist-name")
+ * so the API JSON matches the exact specification.
  */
 @Entity
 @Table(name = "musics")
@@ -93,8 +96,10 @@ public class Music {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Music music = (Music) o;
         return Objects.equals(id, music.id);
     }
@@ -108,8 +113,8 @@ public class Music {
     public String toString() {
         return "Music{" +
                 "id=" + id +
-                ", artistName='" + artistName + '\'' +
-                ", genreName='" + genreName + '\'' +
+                ", artist'sName='" + artistName + '\'' +
+                ", genre's Name='" + genreName + '\'' +
                 ", link='" + link + '\'' +
                 '}';
     }
